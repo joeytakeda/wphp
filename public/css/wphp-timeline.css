@@ -1,0 +1,610 @@
+/* Webfont: LatoLatin-Black */
+@font-face {
+  font-family: "LatoLatinWebBlack";
+  src: url("../yarn/lato-font/fonts/lato-black/lato-black.woff2") format("woff2"), url("../yarn/lato-font/fonts/lato-black/lato-black.woff") format("woff");
+  /* Modern Browsers */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+/* Webfont: LatoLatin-Regular */
+@font-face {
+  font-family: "LatoLatinWeb";
+  src: url("../yarn/lato-font/fonts/lato-normal/lato-normal.woff2") format("woff2"), url("../yarn/lato-font/fonts/lato-normal/lato-normal.woff") format("woff");
+  /* Modern Browsers */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+/* Webfont: Cormorant Garamond SemiBold */
+/* cormorant-garamond-600normal - latin */
+@font-face {
+  font-family: "CormorantGaramond-SemiBold";
+  font-style: normal;
+  font-display: swap;
+  font-weight: normal;
+  src: local("Cormorant Garamond SemiBold "), local("Cormorant Garamond-SemiBold"), url("../yarn/typeface-cormorant-garamond/files/cormorant-garamond-latin-600.woff2") format("woff2"), url("../yarn/typeface-cormorant-garamond/files/cormorant-garamond-latin-600.woff") format("woff");
+  /* Modern Browsers */
+}
+/* cormorant-garamond-700normal - latin */
+@font-face {
+  font-family: "CormorantGaramond-Bold";
+  font-style: normal;
+  font-display: swap;
+  font-weight: normal;
+  src: local("Cormorant Garamond Bold "), local("Cormorant Garamond-Bold"), url("../yarn/typeface-cormorant-garamond/files/cormorant-garamond-latin-700.woff2") format("woff2"), url("../yarn/typeface-cormorant-garamond/files/cormorant-garamond-latin-700.woff") format("woff");
+  /* Modern Browsers */
+}
+/* Webfont: LatoLatin-Black */
+@font-face {
+  font-family: "LatoLatinWebBlack";
+  src: url("../yarn/lato-font/fonts/lato-black/lato-black.woff2") format("woff2"), url("../yarn/lato-font/fonts/lato-black/lato-black.woff") format("woff");
+  /* Modern Browsers */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+/* Webfont: LatoLatin-Regular */
+@font-face {
+  font-family: "LatoLatinWeb";
+  src: url("../yarn/lato-font/fonts/lato-normal/lato-normal.woff2") format("woff2"), url("../yarn/lato-font/fonts/lato-normal/lato-normal.woff") format("woff");
+  /* Modern Browsers */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+/* Webfont: Cormorant Garamond SemiBold */
+/* cormorant-garamond-600normal - latin */
+@font-face {
+  font-family: "CormorantGaramond-SemiBold";
+  font-style: normal;
+  font-display: swap;
+  font-weight: normal;
+  src: local("Cormorant Garamond SemiBold "), local("Cormorant Garamond-SemiBold"), url("../yarn/typeface-cormorant-garamond/files/cormorant-garamond-latin-600.woff2") format("woff2"), url("../yarn/typeface-cormorant-garamond/files/cormorant-garamond-latin-600.woff") format("woff");
+  /* Modern Browsers */
+}
+/* cormorant-garamond-700normal - latin */
+@font-face {
+  font-family: "CormorantGaramond-Bold";
+  font-style: normal;
+  font-display: swap;
+  font-weight: normal;
+  src: local("Cormorant Garamond Bold "), local("Cormorant Garamond-Bold"), url("../yarn/typeface-cormorant-garamond/files/cormorant-garamond-latin-700.woff2") format("woff2"), url("../yarn/typeface-cormorant-garamond/files/cormorant-garamond-latin-700.woff") format("woff");
+  /* Modern Browsers */
+}
+.vizLinks {
+  display: flex;
+  flex-direction: row;
+}
+.vizLinks div {
+  flex: 1 1 100%;
+  text-align: center;
+  border: 1px solid black;
+  justify-content: center;
+  align-content: center;
+}
+
+#timeline, #storymap {
+  display: none;
+}
+
+#viz {
+  margin-bottom: 2rem;
+}
+
+#viz.timeline > #timeline,
+#viz.storymap > #storymap {
+  display: block;
+  width: 100%;
+  height: 800px;
+  margin: 0 auto;
+}
+#viz.timeline > #timeline .tl-timegroup .tl-timegroup-message,
+#viz.storymap > #storymap .tl-timegroup .tl-timegroup-message {
+  color: #5c5349;
+  z-index: 9000;
+}
+
+.tl-timemarker:not([data-genre]) .tl-timemarker-content-container {
+  background: #008080;
+  color: white;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Fiction] .tl-timemarker-content-container {
+  background-color: #74557c;
+  color: white;
+}
+
+.tl-timemarker[data-genre=Fiction]:hover .tl-timemarker-content-container:hover {
+  background-color: #74557c;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=FictionNovel] .tl-timemarker-content-container {
+  background-color: #88ce94;
+  color: black;
+}
+
+.tl-timemarker[data-genre=FictionNovel]:hover .tl-timemarker-content-container:hover {
+  background-color: #88ce94;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=FictionTale] .tl-timemarker-content-container {
+  background-color: #0f0f10;
+  color: white;
+}
+
+.tl-timemarker[data-genre=FictionTale]:hover .tl-timemarker-content-container:hover {
+  background-color: #0f0f10;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=FictionStory] .tl-timemarker-content-container {
+  background-color: #03141c;
+  color: white;
+}
+
+.tl-timemarker[data-genre=FictionStory]:hover .tl-timemarker-content-container:hover {
+  background-color: #03141c;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Poetry] .tl-timemarker-content-container {
+  background-color: #fe822a;
+  color: black;
+}
+
+.tl-timemarker[data-genre=Poetry]:hover .tl-timemarker-content-container:hover {
+  background-color: #fe822a;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=PoetryLyric] .tl-timemarker-content-container {
+  background-color: #5d0264;
+  color: white;
+}
+
+.tl-timemarker[data-genre=PoetryLyric]:hover .tl-timemarker-content-container:hover {
+  background-color: #5d0264;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=PoetryCollection] .tl-timemarker-content-container {
+  background-color: #d06d8e;
+  color: black;
+}
+
+.tl-timemarker[data-genre=PoetryCollection]:hover .tl-timemarker-content-container:hover {
+  background-color: #d06d8e;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=PoetryDramatic] .tl-timemarker-content-container {
+  background-color: #f39192;
+  color: black;
+}
+
+.tl-timemarker[data-genre=PoetryDramatic]:hover .tl-timemarker-content-container:hover {
+  background-color: #f39192;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=PoetryEpic] .tl-timemarker-content-container {
+  background-color: #ffc499;
+  color: black;
+}
+
+.tl-timemarker[data-genre=PoetryEpic]:hover .tl-timemarker-content-container:hover {
+  background-color: #ffc499;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Drama] .tl-timemarker-content-container {
+  background-color: #8a1469;
+  color: white;
+}
+
+.tl-timemarker[data-genre=Drama]:hover .tl-timemarker-content-container:hover {
+  background-color: #8a1469;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=ScienceNaturalHistoryMedicine] .tl-timemarker-content-container {
+  background-color: #bab8d1;
+  color: black;
+}
+
+.tl-timemarker[data-genre=ScienceNaturalHistoryMedicine]:hover .tl-timemarker-content-container:hover {
+  background-color: #bab8d1;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Music] .tl-timemarker-content-container {
+  background-color: #fdf2fa;
+  color: black;
+}
+
+.tl-timemarker[data-genre=Music]:hover .tl-timemarker-content-container:hover {
+  background-color: #fdf2fa;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Education] .tl-timemarker-content-container {
+  background-color: #cab6d8;
+  color: black;
+}
+
+.tl-timemarker[data-genre=Education]:hover .tl-timemarker-content-container:hover {
+  background-color: #cab6d8;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=TravelTourismTopography] .tl-timemarker-content-container {
+  background-color: #cbdff6;
+  color: black;
+}
+
+.tl-timemarker[data-genre=TravelTourismTopography]:hover .tl-timemarker-content-container:hover {
+  background-color: #cbdff6;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=History] .tl-timemarker-content-container {
+  background-color: #a1aac9;
+  color: black;
+}
+
+.tl-timemarker[data-genre=History]:hover .tl-timemarker-content-container:hover {
+  background-color: #a1aac9;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=JuvenileLiterature] .tl-timemarker-content-container {
+  background-color: #070614;
+  color: white;
+}
+
+.tl-timemarker[data-genre=JuvenileLiterature]:hover .tl-timemarker-content-container:hover {
+  background-color: #070614;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=unknown] .tl-timemarker-content-container {
+  background-color: #0b1504;
+  color: white;
+}
+
+.tl-timemarker[data-genre=unknown]:hover .tl-timemarker-content-container:hover {
+  background-color: #0b1504;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Domestic] .tl-timemarker-content-container {
+  background-color: #ffb980;
+  color: black;
+}
+
+.tl-timemarker[data-genre=Domestic]:hover .tl-timemarker-content-container:hover {
+  background-color: #ffb980;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Letters] .tl-timemarker-content-container {
+  background-color: #190340;
+  color: white;
+}
+
+.tl-timemarker[data-genre=Letters]:hover .tl-timemarker-content-container:hover {
+  background-color: #190340;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Essays] .tl-timemarker-content-container {
+  background-color: #fd6a26;
+  color: black;
+}
+
+.tl-timemarker[data-genre=Essays]:hover .tl-timemarker-content-container:hover {
+  background-color: #fd6a26;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Biography] .tl-timemarker-content-container {
+  background-color: #3e1f56;
+  color: white;
+}
+
+.tl-timemarker[data-genre=Biography]:hover .tl-timemarker-content-container:hover {
+  background-color: #3e1f56;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Memoirs] .tl-timemarker-content-container {
+  background-color: #476a06;
+  color: white;
+}
+
+.tl-timemarker[data-genre=Memoirs]:hover .tl-timemarker-content-container:hover {
+  background-color: #476a06;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=FictionRomance] .tl-timemarker-content-container {
+  background-color: #090709;
+  color: white;
+}
+
+.tl-timemarker[data-genre=FictionRomance]:hover .tl-timemarker-content-container:hover {
+  background-color: #090709;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Works] .tl-timemarker-content-container {
+  background-color: #312502;
+  color: white;
+}
+
+.tl-timemarker[data-genre=Works]:hover .tl-timemarker-content-container:hover {
+  background-color: #312502;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=ReligionBiblical] .tl-timemarker-content-container {
+  background-color: #64ae0a;
+  color: white;
+}
+
+.tl-timemarker[data-genre=ReligionBiblical]:hover .tl-timemarker-content-container:hover {
+  background-color: #64ae0a;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=PoliticalWriting] .tl-timemarker-content-container {
+  background-color: #271c02;
+  color: white;
+}
+
+.tl-timemarker[data-genre=PoliticalWriting]:hover .tl-timemarker-content-container:hover {
+  background-color: #271c02;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Miscellany] .tl-timemarker-content-container {
+  background-color: #84705c;
+  color: white;
+}
+
+.tl-timemarker[data-genre=Miscellany]:hover .tl-timemarker-content-container:hover {
+  background-color: #84705c;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=CatalogueAdvertisementProspectus] .tl-timemarker-content-container {
+  background-color: #c8aaa3;
+  color: black;
+}
+
+.tl-timemarker[data-genre=CatalogueAdvertisementProspectus]:hover .tl-timemarker-content-container:hover {
+  background-color: #c8aaa3;
+}
+
+/* Idea for $switch and $threshold comes from CSS Tricks:
+ * 
+ *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+ * 
+ * Rather than just use the inverse of the colour (which is often still hard to read),
+ * just switch between white or black based on the threshold.
+ *  */
+/* Create the timeline marker:  */
+.tl-timemarker[data-genre=Legal] .tl-timemarker-content-container {
+  background-color: #a15961;
+  color: white;
+}
+
+.tl-timemarker[data-genre=Legal]:hover .tl-timemarker-content-container:hover {
+  background-color: #a15961;
+}
+
+h2.tl-headline {
+  color: inherit !important;
+}
+
+/*# sourceMappingURL=wphp-timeline.css.map */

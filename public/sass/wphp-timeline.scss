@@ -1,0 +1,96 @@
+@import 'variables';
+@import 'mixins';
+
+
+.vizLinks{
+    display:flex;
+    flex-direction:row;
+    div{
+        flex: 1 1 100%;
+        text-align:center;
+        border: 1px solid black;
+        justify-content:center;
+        align-content:center;
+    }
+}
+
+#timeline, #storymap{
+    display:none;
+}
+
+#viz{
+    margin-bottom:2rem;
+}
+
+#viz.timeline > #timeline,
+#viz.storymap > #storymap{
+   display:block;
+   width:100%;
+   height:800px;
+   margin:0 auto;
+   
+   .tl-timegroup{
+       .tl-timegroup-message{
+           color:$heading_color;
+           z-index:9000;
+       }
+   }  
+    
+}
+
+
+.tl-timemarker:not([data-genre]) .tl-timemarker-content-container{
+    background: #008080;
+    color:white;
+}
+
+
+
+$genres: (Fiction, FictionNovel, FictionTale, FictionStory, Poetry, PoetryLyric, PoetryCollection, PoetryDramatic, PoetryEpic, Drama, ScienceNaturalHistoryMedicine, Music, Education, TravelTourismTopography, History, JuvenileLiterature, unknown, Domestic, Letters, Essays, Biography, Memoirs, FictionRomance, Works, ReligionBiblical, PoliticalWriting, Miscellany, CatalogueAdvertisementProspectus, Legal);
+
+
+
+@each $name, $genre in $genres{
+    $h: random(360);
+    $s: random(100);
+    $l: random(100);
+    $color: hsl($h, $s, $l);
+    
+    /* Idea for $switch and $threshold comes from CSS Tricks:
+     * 
+     *  https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+     * 
+     * Rather than just use the inverse of the colour (which is often still hard to read),
+     * just switch between white or black based on the threshold.
+     *  */
+     
+    $threshold: 50;
+    $switch: ($l - $threshold) * -1;
+    
+    /* Create the timeline marker:  */
+    .tl-timemarker[data-genre="#{$name}"] .tl-timemarker-content-container{
+ 
+        background-color: $color;
+        @if $switch > 0{
+          color:white;
+        } @else {
+            color:black;
+        }
+        
+        }
+    
+    
+    .tl-timemarker[data-genre="#{$name}"]:hover .tl-timemarker-content-container:hover{
+        background-color: $color
+    }
+    
+    
+    
+}
+
+
+
+
+h2.tl-headline{
+    color:inherit!important;
+}

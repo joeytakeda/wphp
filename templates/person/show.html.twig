@@ -2,6 +2,14 @@
 
 {% block htmlhead %}
     <link rel="alternate" type="application/rdf+xml" href="{{ url('person_show', {'id': person.id, '_format': 'rdf'}) }}"/>
+    
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ asset('timeline3/css/timeline.css') }}"/>
+<link rel="stylesheet" href="{{ asset('storymap/storymap.css') }}"/>
+<link rel="stylesheet" href="{{ asset('css/wphp-timeline.css') }}"/>
+
 {% endblock %}
 
 {% block pageheader %}
@@ -25,6 +33,8 @@
             </div>
         </div>
     {% endif %}
+    
+    
     <table class="table table-bordered table-condensed table-hover table-striped">
         <tbody>
             <tr>
@@ -108,6 +118,12 @@
         </tbody>
     </table>
 
+
+    
+ 
+
+
+
     <h2>Titles</h2>
     <p class="count">
         Displaying {{ pagination|length }} titles of {{ pagination.getTotalItemCount }} total.
@@ -135,6 +151,10 @@
     </table>
 
     {% include 'partials/export.html.twig' with {'path': 'person_export', 'parameters': {'id': person.id}} %}
+    
+    <div class="clearfix"></div>
+
+
 
     <div class="navigation">
         {{ knp_pagination_render(pagination) }}
@@ -142,10 +162,37 @@
 
     <div class='clearfix'></div>
 
+<hr/>
+
+
+<h2>Visualizations</h2>
+
+<ul class="nav nav-pills" id="vizNav">
+    <li class="nav-item">
+        <a class="nav-link" href="#" id="timeline-link">Timeline</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#" id="storymap-link">Storymap</a>
+    </li>
+</ul>
+
+<div id="viz">
+    <div id="timeline">
+    </div>
+    <div id="storymap">
+        
+    </div>
+</div>
+
+
+<div class='clearfix'></div>
     {% include '@NinesFeedback/comment/comment-interface.html.twig' with { 'entity': person } %}
 
 {% endblock %}
 
 {% block javascripts %}
     <script src="{{ asset('bower/tablesorter/jquery.tablesorter.min.js') }}"></script>
+    <script src="{{ asset('timeline3/js/timeline-min.js') }}"></script>
+    <script src="{{ asset('storymap/storymap-min.js') }}"></script>
+    <script src="{{ asset('js/wphp-timeline.js') }}"></script>
 {% endblock %}

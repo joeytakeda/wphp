@@ -302,6 +302,52 @@ class PersonController extends AbstractController implements PaginatorAwareInter
 
         return $response;
     }
+    /**
+     * Finds and creates the timeline JSON for a person
+     *
+     * @Route("/{id}/timeline", name="person_timeline", methods={"GET"})
+     *
+     * @return JsonResponse
+     */
+     public function timelineAction(Request $request, Person $person) {
+        $titleRoles = $person->getTitleRoles(true);
+        $personFields = ['lastName','firstName', 'wikipediaUrl','gender','dob','dod','cityOfBirth','cityOfDeath'];
+        $data['person'] = [];
+        foreach($personFields as $field){
+            $isLoc = in_array($field,array('cityOfDeath','cityOfBirth'));
+            $fx = "get" . ucfirst($field);
+            if ($person->$fx()){
+                 $val = ($isLoc) ? $person->$fx()->getName() : $person->$fx();
+                $data['person'][$field] = $val;
+               }
+        }
+        
+        $titleFields = ['title','pubDate','genre','locationOfPrinting'];
+        $data['contributions'] = [];
+        foreach($titleRoles as $tr) {
+            $title = $tr->getTitle();
+            $id = $title->getId();
+            $data['contributions'][$id] = [];
+              foreach($titleFields as $field){
+                $fx = "get" . ucfirst($field);
+                if ($title->$fx()){
+                    $val = (in_array($field,array('genre','locationOfPrinting'))) ? $title->$fx()->getName() : $title->$fx();
+                       $data['contributions'][$id][$field] = $val;
+                       if ($field == 'locationOfPrinting'){
+                            $data['contributions'][$id]['lat'] = $title->$fx()->getLatitude();
+                            $data['contributions'][$id]['lon'] = $title->$fx()->getLongitude();
+                       }
+                };
+            }
+         }
+         
+       return new JsonResponse($data);
+}
+    
+    
+    
+
+
 
     /**
      * Finds and displays a Person entity.
