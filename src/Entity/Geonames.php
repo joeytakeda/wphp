@@ -196,10 +196,8 @@ class Geonames {
 
     /**
      * Return the name and country of this place.
-     *
-     * @return string
      */
-    public function __toString() {
+    public function __toString() : string {
         return $this->name . ' (' . $this->country . ')';
     }
 

@@ -43,10 +43,8 @@ class Firmrole {
 
     /**
      * Return the name of this firm role.
-     *
-     * @return string
      */
-    public function __toString() {
+    public function __toString() : string {
         return $this->name;
     }
 

@@ -70,10 +70,8 @@ class EstcMarc {
 
     /**
      * Return the field and subfield for this MARC record.
-     *
-     * @return string
      */
-    public function __toString() {
+    public function __toString() : string {
         return $this->field . $this->subfield;
     }
 
