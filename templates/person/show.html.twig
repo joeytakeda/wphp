@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="{{ asset('timeline3/css/timeline.css') }}"/>
 <link rel="stylesheet" href="{{ asset('storymap/storymap.css') }}"/>
 <link rel="stylesheet" href="{{ asset('css/wphp-timeline.css') }}"/>
+<link rel="stylesheet" href="{{ asset('yarn/leaflet/dist/leaflet.css') }}"/>
 
 {% endblock %}
 
@@ -17,6 +18,9 @@
 {% endblock %}
 
 {% block body %}
+    <div id="map">
+        
+    </div>
 
     {% if is_granted('ROLE_CONTENT_ADMIN') %}
         <div class="btn-toolbar">
@@ -102,16 +106,16 @@
                 </td>
             </tr>
             {% if is_granted('ROLE_USER') %}
-                <tr data-toggle="popover" data-content="{{ 'person.fields.imageUrl'|trans }}">
-                    <th>Image URL</th>
+                <tr>
+                    <th data-toggle="popover" data-content="{{ 'person.fields.imageUrl'|trans }}">Image URL</th>
                     <td>
                         {% if person.imageUrl %}
                             <a href="{{person.imageUrl }}">{{ person.imageUrl }}</a>
                         {% endif %}
                     </td>
                 </tr>
-                <tr data-toggle="popover" data-content="{{ 'person.fields.finalCheck'|trans }}">
-                    <th>Verified</th>
+                <tr>
+                    <th data-toggle="popover" data-content="{{ 'person.fields.finalCheck'|trans }}">Verified</th>
                     <td>{% if person.finalCheck %}Yes{% else %}No{% endif %}</td>
                 </tr>
             {% endif %}
@@ -120,7 +124,23 @@
 
 
     
- 
+    {% if is_granted('ROLE_CONTENT_ADMIN') and pagination.getTotalItemCount > 1 %}
+<!--
+<ul class="nav nav-pills" id="vizNav">
+    <li class="nav-item">
+        <a class="nav-link" href="#" id="timeline-link">Timeline</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#" id="storymap-link">Storymap</a>
+    </li>
+</ul>-->
+
+<div id="viz">
+    <div id="timeline">
+    </div>
+</div>
+
+{% endif %}
 
 
 
@@ -165,24 +185,6 @@
 <hr/>
 
 
-<h2>Visualizations</h2>
-
-<ul class="nav nav-pills" id="vizNav">
-    <li class="nav-item">
-        <a class="nav-link" href="#" id="timeline-link">Timeline</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#" id="storymap-link">Storymap</a>
-    </li>
-</ul>
-
-<div id="viz">
-    <div id="timeline">
-    </div>
-    <div id="storymap">
-        
-    </div>
-</div>
 
 
 <div class='clearfix'></div>
@@ -193,6 +195,6 @@
 {% block javascripts %}
     <script src="{{ asset('bower/tablesorter/jquery.tablesorter.min.js') }}"></script>
     <script src="{{ asset('timeline3/js/timeline-min.js') }}"></script>
-    <script src="{{ asset('storymap/storymap-min.js') }}"></script>
+    <script src="{{ asset('yarn/leaflet/dist/leaflet.js') }}"></script>
     <script src="{{ asset('js/wphp-timeline.js') }}"></script>
 {% endblock %}

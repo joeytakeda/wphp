@@ -10,10 +10,13 @@
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
     "lato-font": "^3.0.0",
+    "leaflet": "^1.6.0",
+    "saxon-js": "^2.0.2",
     "select2": "^4.0.12",
     "select2-bootstrap-css": "^1.4.6",
     "symfony-collection": "^2.1.30",
     "tinymce": "^5.1.5",
-    "typeface-cormorant-garamond": "^0.0.72"
+    "typeface-cormorant-garamond": "^0.0.72",
+    "xslt3": "^2.0.2"
   }
 }

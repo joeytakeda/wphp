@@ -72,6 +72,11 @@
   src: local("Cormorant Garamond Bold "), local("Cormorant Garamond-Bold"), url("../yarn/typeface-cormorant-garamond/files/cormorant-garamond-latin-700.woff2") format("woff2"), url("../yarn/typeface-cormorant-garamond/files/cormorant-garamond-latin-700.woff") format("woff");
   /* Modern Browsers */
 }
+#map {
+  height: 40vh;
+  width: 100%;
+}
+
 .vizLinks {
   display: flex;
   flex-direction: row;
@@ -84,25 +89,23 @@
   align-content: center;
 }
 
-#timeline, #storymap {
-  display: none;
-}
-
 #viz {
   margin-bottom: 2rem;
 }
 
-#viz.timeline > #timeline,
-#viz.storymap > #storymap {
+#timeline {
   display: block;
   width: 100%;
   height: 800px;
   margin: 0 auto;
 }
-#viz.timeline > #timeline .tl-timegroup .tl-timegroup-message,
-#viz.storymap > #storymap .tl-timegroup .tl-timegroup-message {
+#timeline .tl-timegroup .tl-timegroup-message {
   color: #5c5349;
   z-index: 9000;
+}
+#timeline .tl-timemarker-text > .tl-headline {
+  font-size: 14px;
+  line-height: 14px;
 }
 
 .tl-timemarker:not([data-genre]) .tl-timemarker-content-container {
@@ -119,12 +122,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Fiction] .tl-timemarker-content-container {
-  background-color: #74557c;
-  color: white;
+  background-color: #77f3d6;
+  color: black;
 }
 
 .tl-timemarker[data-genre=Fiction]:hover .tl-timemarker-content-container:hover {
-  background-color: #74557c;
+  background-color: #77f3d6;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -136,12 +139,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=FictionNovel] .tl-timemarker-content-container {
-  background-color: #88ce94;
-  color: black;
+  background-color: #2b463d;
+  color: white;
 }
 
 .tl-timemarker[data-genre=FictionNovel]:hover .tl-timemarker-content-container:hover {
-  background-color: #88ce94;
+  background-color: #2b463d;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -153,12 +156,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=FictionTale] .tl-timemarker-content-container {
-  background-color: #0f0f10;
+  background-color: #5c2d30;
   color: white;
 }
 
 .tl-timemarker[data-genre=FictionTale]:hover .tl-timemarker-content-container:hover {
-  background-color: #0f0f10;
+  background-color: #5c2d30;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -170,12 +173,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=FictionStory] .tl-timemarker-content-container {
-  background-color: #03141c;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 .tl-timemarker[data-genre=FictionStory]:hover .tl-timemarker-content-container:hover {
-  background-color: #03141c;
+  background-color: white;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -187,12 +190,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Poetry] .tl-timemarker-content-container {
-  background-color: #fe822a;
+  background-color: #edf7d9;
   color: black;
 }
 
 .tl-timemarker[data-genre=Poetry]:hover .tl-timemarker-content-container:hover {
-  background-color: #fe822a;
+  background-color: #edf7d9;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -204,12 +207,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=PoetryLyric] .tl-timemarker-content-container {
-  background-color: #5d0264;
+  background-color: #03a65f;
   color: white;
 }
 
 .tl-timemarker[data-genre=PoetryLyric]:hover .tl-timemarker-content-container:hover {
-  background-color: #5d0264;
+  background-color: #03a65f;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -221,12 +224,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=PoetryCollection] .tl-timemarker-content-container {
-  background-color: #d06d8e;
+  background-color: #f87754;
   color: black;
 }
 
 .tl-timemarker[data-genre=PoetryCollection]:hover .tl-timemarker-content-container:hover {
-  background-color: #d06d8e;
+  background-color: #f87754;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -238,12 +241,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=PoetryDramatic] .tl-timemarker-content-container {
-  background-color: #f39192;
+  background-color: #e09de1;
   color: black;
 }
 
 .tl-timemarker[data-genre=PoetryDramatic]:hover .tl-timemarker-content-container:hover {
-  background-color: #f39192;
+  background-color: #e09de1;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -255,12 +258,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=PoetryEpic] .tl-timemarker-content-container {
-  background-color: #ffc499;
-  color: black;
+  background-color: #6b2933;
+  color: white;
 }
 
 .tl-timemarker[data-genre=PoetryEpic]:hover .tl-timemarker-content-container:hover {
-  background-color: #ffc499;
+  background-color: #6b2933;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -272,12 +275,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Drama] .tl-timemarker-content-container {
-  background-color: #8a1469;
-  color: white;
+  background-color: #f9fbfa;
+  color: black;
 }
 
 .tl-timemarker[data-genre=Drama]:hover .tl-timemarker-content-container:hover {
-  background-color: #8a1469;
+  background-color: #f9fbfa;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -289,12 +292,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=ScienceNaturalHistoryMedicine] .tl-timemarker-content-container {
-  background-color: #bab8d1;
+  background-color: #8ddc50;
   color: black;
 }
 
 .tl-timemarker[data-genre=ScienceNaturalHistoryMedicine]:hover .tl-timemarker-content-container:hover {
-  background-color: #bab8d1;
+  background-color: #8ddc50;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -306,12 +309,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Music] .tl-timemarker-content-container {
-  background-color: #fdf2fa;
+  background-color: #a35c7d;
   color: black;
 }
 
 .tl-timemarker[data-genre=Music]:hover .tl-timemarker-content-container:hover {
-  background-color: #fdf2fa;
+  background-color: #a35c7d;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -323,12 +326,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Education] .tl-timemarker-content-container {
-  background-color: #cab6d8;
+  background-color: #ec3279;
   color: black;
 }
 
 .tl-timemarker[data-genre=Education]:hover .tl-timemarker-content-container:hover {
-  background-color: #cab6d8;
+  background-color: #ec3279;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -340,12 +343,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=TravelTourismTopography] .tl-timemarker-content-container {
-  background-color: #cbdff6;
-  color: black;
+  background-color: #ab1254;
+  color: white;
 }
 
 .tl-timemarker[data-genre=TravelTourismTopography]:hover .tl-timemarker-content-container:hover {
-  background-color: #cbdff6;
+  background-color: #ab1254;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -357,12 +360,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=History] .tl-timemarker-content-container {
-  background-color: #a1aac9;
-  color: black;
+  background-color: #2993d1;
+  color: white;
 }
 
 .tl-timemarker[data-genre=History]:hover .tl-timemarker-content-container:hover {
-  background-color: #a1aac9;
+  background-color: #2993d1;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -374,12 +377,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=JuvenileLiterature] .tl-timemarker-content-container {
-  background-color: #070614;
+  background-color: #0d0802;
   color: white;
 }
 
 .tl-timemarker[data-genre=JuvenileLiterature]:hover .tl-timemarker-content-container:hover {
-  background-color: #070614;
+  background-color: #0d0802;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -391,12 +394,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=unknown] .tl-timemarker-content-container {
-  background-color: #0b1504;
-  color: white;
+  background-color: #9fcef9;
+  color: black;
 }
 
 .tl-timemarker[data-genre=unknown]:hover .tl-timemarker-content-container:hover {
-  background-color: #0b1504;
+  background-color: #9fcef9;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -408,12 +411,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Domestic] .tl-timemarker-content-container {
-  background-color: #ffb980;
+  background-color: #eea0e8;
   color: black;
 }
 
 .tl-timemarker[data-genre=Domestic]:hover .tl-timemarker-content-container:hover {
-  background-color: #ffb980;
+  background-color: #eea0e8;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -425,12 +428,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Letters] .tl-timemarker-content-container {
-  background-color: #190340;
-  color: white;
+  background-color: #9eacbd;
+  color: black;
 }
 
 .tl-timemarker[data-genre=Letters]:hover .tl-timemarker-content-container:hover {
-  background-color: #190340;
+  background-color: #9eacbd;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -442,12 +445,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Essays] .tl-timemarker-content-container {
-  background-color: #fd6a26;
+  background-color: #f4f499;
   color: black;
 }
 
 .tl-timemarker[data-genre=Essays]:hover .tl-timemarker-content-container:hover {
-  background-color: #fd6a26;
+  background-color: #f4f499;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -459,12 +462,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Biography] .tl-timemarker-content-container {
-  background-color: #3e1f56;
-  color: white;
+  background-color: #c0eea0;
+  color: black;
 }
 
 .tl-timemarker[data-genre=Biography]:hover .tl-timemarker-content-container:hover {
-  background-color: #3e1f56;
+  background-color: #c0eea0;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -476,12 +479,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Memoirs] .tl-timemarker-content-container {
-  background-color: #476a06;
+  background-color: #07976c;
   color: white;
 }
 
 .tl-timemarker[data-genre=Memoirs]:hover .tl-timemarker-content-container:hover {
-  background-color: #476a06;
+  background-color: #07976c;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -493,12 +496,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=FictionRomance] .tl-timemarker-content-container {
-  background-color: #090709;
-  color: white;
+  background-color: #797fa0;
+  color: black;
 }
 
 .tl-timemarker[data-genre=FictionRomance]:hover .tl-timemarker-content-container:hover {
-  background-color: #090709;
+  background-color: #797fa0;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -510,12 +513,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Works] .tl-timemarker-content-container {
-  background-color: #312502;
-  color: white;
+  background-color: #d5a6a5;
+  color: black;
 }
 
 .tl-timemarker[data-genre=Works]:hover .tl-timemarker-content-container:hover {
-  background-color: #312502;
+  background-color: #d5a6a5;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -527,12 +530,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=ReligionBiblical] .tl-timemarker-content-container {
-  background-color: #64ae0a;
+  background-color: #646264;
   color: white;
 }
 
 .tl-timemarker[data-genre=ReligionBiblical]:hover .tl-timemarker-content-container:hover {
-  background-color: #64ae0a;
+  background-color: #646264;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -544,12 +547,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=PoliticalWriting] .tl-timemarker-content-container {
-  background-color: #271c02;
+  background-color: #1f1f0e;
   color: white;
 }
 
 .tl-timemarker[data-genre=PoliticalWriting]:hover .tl-timemarker-content-container:hover {
-  background-color: #271c02;
+  background-color: #1f1f0e;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -561,12 +564,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Miscellany] .tl-timemarker-content-container {
-  background-color: #84705c;
+  background-color: #450c5a;
   color: white;
 }
 
 .tl-timemarker[data-genre=Miscellany]:hover .tl-timemarker-content-container:hover {
-  background-color: #84705c;
+  background-color: #450c5a;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -578,12 +581,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=CatalogueAdvertisementProspectus] .tl-timemarker-content-container {
-  background-color: #c8aaa3;
+  background-color: #f6a7c0;
   color: black;
 }
 
 .tl-timemarker[data-genre=CatalogueAdvertisementProspectus]:hover .tl-timemarker-content-container:hover {
-  background-color: #c8aaa3;
+  background-color: #f6a7c0;
 }
 
 /* Idea for $switch and $threshold comes from CSS Tricks:
@@ -595,12 +598,12 @@
  *  */
 /* Create the timeline marker:  */
 .tl-timemarker[data-genre=Legal] .tl-timemarker-content-container {
-  background-color: #a15961;
+  background-color: #0d020c;
   color: white;
 }
 
 .tl-timemarker[data-genre=Legal]:hover .tl-timemarker-content-container:hover {
-  background-color: #a15961;
+  background-color: #0d020c;
 }
 
 h2.tl-headline {

@@ -306,7 +306,11 @@ class PersonController extends AbstractController implements PaginatorAwareInter
      * @return JsonResponse
      */
      public function timelineAction(Request $request, Person $person) {
-        $titleRoles = $person->getTitleRoles(true);
+     
+        $titleRoles = $person->getTitleRoles()->filter(function (TitleRole $tr) {
+                $title = $tr->getTitle();
+                return $title->getFinalattempt() || $title->getFinalcheck();
+         });
         $personFields = ['lastName','firstName', 'wikipediaUrl','gender','dob','dod','cityOfBirth','cityOfDeath'];
         $data['person'] = [];
         foreach($personFields as $field){
