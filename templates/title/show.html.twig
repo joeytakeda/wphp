@@ -132,7 +132,7 @@
                             <td>
                                 {% if title.format %}
                                     <a href="{{ path('format_show', {'id': title.format.id}) }}">
-                                        {{ title.format.name }} ({{ title.format.abbreviation }})
+                                        {{ title.format.name }}{% if title.format.abbreviation %} ({{ title.format.abbreviation }}) {% endif %}
                                     </a>
                                 {% endif %}
                             </td>

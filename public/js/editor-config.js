@@ -12,7 +12,7 @@ function getTinyMceConfig(editorUploadPath) {
 
         toolbar: "undo redo | styleselect | paste | bold italic | alignleft "
             + "aligncenter alignright alignjustify | "
-            + "bullist numlist outdent indent | link anchor | code",
+            + "bullist numlist outdent indent blockquote | link anchor | code",
 
         image_caption: true,
         images_upload_url: editorUploadPath,

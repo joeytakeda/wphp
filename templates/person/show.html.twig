@@ -9,7 +9,6 @@
 {% endblock %}
 
 {% block body %}
-
     {% if is_granted('ROLE_CONTENT_ADMIN') %}
         <div class="btn-toolbar">
             <div class="btn-group pull-right">
@@ -25,6 +24,7 @@
             </div>
         </div>
     {% endif %}
+  
     <table class="table table-bordered table-condensed table-hover table-striped">
         <tbody>
             <tr>
@@ -108,6 +108,7 @@
         </tbody>
     </table>
 
+    {%  if pagination|length > 0 %}
     <h2>Titles</h2>
     <p class="count">
         Displaying {{ pagination|length }} titles of {{ pagination.getTotalItemCount }} total.
@@ -139,7 +140,7 @@
     <div class="navigation">
         {{ knp_pagination_render(pagination) }}
     </div>
-
+    {% endif %}
     <div class='clearfix'></div>
 
     {% include '@NinesFeedback/comment/comment-interface.html.twig' with { 'entity': person } %}

@@ -22,6 +22,7 @@ body {
     flex: 1;
     flex-grow: 2;
     margin-bottom: 60px;
+    margin-top:40px;
   }
 }
 
@@ -388,6 +389,16 @@ p.help-block {
 }
 
 .blog-panel {
+  &.col-sm-3{
+    width:unset!important;
+    flex:1 1 30%;
+    margin: 0 .5rem;
+    @media(max-width: 767px){
+      flex: 0 0 100%;
+      margin: .5rem 0;
+    }
+  }
+
 
   img {
     max-width: 100%;
@@ -423,6 +434,7 @@ p.help-block {
 .page-header {
   margin-bottom: 0;
   border-bottom: 0;
+  margin-top:0;
 }
 
 .panel-body {
@@ -475,6 +487,7 @@ th {
 
 .row {
   display: flex;
+  flex-wrap:wrap;
 }
 /* End tables and panels */
 
@@ -639,6 +652,7 @@ a.dropdown-toggle::after {
   margin: 0;
 }
 
+
 .navbar-nav:first-child > li > a {
   padding: 10px 20px 10px 0;
   > img {
@@ -649,11 +663,13 @@ a.dropdown-toggle::after {
   }
 }
 
-.navbar-default .navbar-nav:first-child > li > a:active,
-.navbar-default .navbar-nav:first-child > li > a:focus,
-.navbar-default .navbar-nav:first-child > li > a:hover {
-  background-color: transparent;
+.navbar-brand > img{
+  height: unset;
+  width: unset;
+  max-height: 50px;
+  margin-right: 2.5rem;
 }
+
 
 
 .dropdown-menu {
@@ -694,12 +710,34 @@ a.dropdown-toggle::after {
   }
 }
 
+@media(max-width:991px){
+
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+  nav.navbar > .container{
+    width:100%;
+    #navbar ul li a {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   #navbar {
     display: block;
   }
   #navbar[aria-expanded='false'] > ul.nav{
     display:none;
+  }
+
+  .navbar-brand {
+    padding-left: 2.5px;
+    padding-top: 7.5px;
+    img{
+      max-height:35px;
+    }
   }
   .navbar-default .navbar-nav {
     float: none;
@@ -820,8 +858,9 @@ img{
 
 
 // Comments panels
-.comments-expand {
-  .btn {
+.comment-expand {
+  .btn-default {
     white-space: normal;
+
   }
 }

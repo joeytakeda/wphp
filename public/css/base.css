@@ -92,6 +92,7 @@ body > .container {
   flex: 1;
   flex-grow: 2;
   margin-bottom: 60px;
+  margin-top: 40px;
 }
 
 h1,
@@ -426,6 +427,17 @@ p.help-block a {
   font-size: 20px;
 }
 
+.blog-panel.col-sm-3 {
+  width: unset !important;
+  flex: 1 1 30%;
+  margin: 0 0.5rem;
+}
+@media (max-width: 767px) {
+  .blog-panel.col-sm-3 {
+    flex: 0 0 100%;
+    margin: 0.5rem 0;
+  }
+}
 .blog-panel img {
   max-width: 100%;
   height: auto !important;
@@ -451,6 +463,7 @@ p.help-block a {
 .page-header {
   margin-bottom: 0;
   border-bottom: 0;
+  margin-top: 0;
 }
 
 .panel-body {
@@ -489,6 +502,7 @@ th {
 
 .row {
   display: flex;
+  flex-wrap: wrap;
 }
 
 /* End tables and panels */
@@ -654,10 +668,11 @@ a.dropdown-toggle::after {
   }
 }
 
-.navbar-default .navbar-nav:first-child > li > a:active,
-.navbar-default .navbar-nav:first-child > li > a:focus,
-.navbar-default .navbar-nav:first-child > li > a:hover {
-  background-color: transparent;
+.navbar-brand > img {
+  height: unset;
+  width: unset;
+  max-height: 50px;
+  margin-right: 2.5rem;
 }
 
 .dropdown-menu {
@@ -684,6 +699,15 @@ a.dropdown-toggle::after {
   background-color: #eaa89a;
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  nav.navbar > .container {
+    width: 100%;
+  }
+  nav.navbar > .container #navbar ul li a {
+    display: flex;
+    align-items: center;
+  }
+}
 @media (max-width: 768px) {
   #navbar {
     display: block;
@@ -691,6 +715,14 @@ a.dropdown-toggle::after {
 
   #navbar[aria-expanded=false] > ul.nav {
     display: none;
+  }
+
+  .navbar-brand {
+    padding-left: 2.5px;
+    padding-top: 7.5px;
+  }
+  .navbar-brand img {
+    max-height: 35px;
   }
 
   .navbar-default .navbar-nav {
@@ -792,7 +824,7 @@ img {
   text-decoration: none;
 }
 
-.comments-expand .btn {
+.comment-expand .btn-default {
   white-space: normal;
 }
 

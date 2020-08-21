@@ -16,7 +16,7 @@
     <div class='row'>
 
         {% for spotlight in spotlights %}
-            <div class="col-sm-4 blog-panel">
+            <div class="col-sm-3 blog-panel">
                 {% if spotlight is not null %}
                     <div class="panel panel-default">
                         <a href="{{ path('nines_blog_post_show', {'id': spotlight.id}) }}">
